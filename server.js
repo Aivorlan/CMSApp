@@ -16,5 +16,38 @@ const connection = mysql.createConnection({
     database: "employees_db"
   });
 
-  
+  connection.connect(function(err) {
+    if (err) throw err;
+    startup();
+  });
+
+function startup() {
+    inquirer.prompt({
+        name: "BLM",
+        type: "rawlist",
+        message: "What would you like to do?",
+        choices:[
+            "View current workplace",
+            "Add to workplace",
+            "Remove from workplace"
+        ]
+    })
+    .then(function(answer){
+        switch (answer.BLM) {
+            case "View current workplace":
+                viewSwitch();
+                break;
+
+            case "Add to workplace":
+                addSwitch();
+                break;
+
+            case "Remove from workplace":
+                removeSwitch();
+                break;
+
+        }
+    })
+};
+
 
