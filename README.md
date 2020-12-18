@@ -26,6 +26,12 @@ Bonus points if you're able to:
 
   * View the total utilized budget of a department -- ie the combined salaries of all employees in that department
 
+  ## Preview of working app 
+  <a href='https://drive.google.com/file/d/1qVO9JPY7JIQ_U8UUpTWUOj62RUBGQVrN/view?usp=sharing'>Click here to view the app</a>
+  
+
+
+
 ## Questions 
 <br>
 <img src='https://avatars3.githubusercontent.com/u/65247434?v=4' height='200px' alt='github avatar'>
