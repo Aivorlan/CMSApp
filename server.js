@@ -169,4 +169,35 @@ function roleUpdate() {
     })
   })
 }
- 
+// View departments, roles, employees
+
+// View all department
+function viewDepartments() {
+  db.query('SELECT * FROM emp_cmsa_db.department;', (err, departments) => {
+    if (err) throw err
+    console.table(departments)
+    init()
+  })
+}
+
+// View all roles
+function viewRoles() {
+  db.query('SELECT * FROM emp_cmsa_db.roles;', (err, roles) => {
+    if (err) throw err
+    console.table(roles)
+    init()
+  })
+}
+
+// View all employees
+function viewEmployees() {
+  db.query('SELECT * FROM emp_cmsa_db.employee;', (err, employees) => {
+    if (err) throw err
+    console.table(employees)
+    init()
+  })
+}
+
+
+    
+init()   
