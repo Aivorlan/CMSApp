@@ -73,4 +73,31 @@ let db = require('./db')
       .catch(err => console.log(err))
   }
 
-  
+ // Add role
+ function addRole() {
+  prompt([
+    {
+      type: 'input',
+      name: 'newRole',
+      message: 'What role do you want to add?'
+    },
+    {
+      type: 'input',
+      name: 'newSalary',
+      message: 'What is the salary for this role?'
+    },
+    {
+      type: 'input',
+      name: 'newDepartmentId',
+      message: 'What is the department id for this role?'
+    }
+  ])
+    .then((answer) => {
+      db.query(`INSERT INTO roles (title, salary, department_id) VALUES ('${answer.newRole}', '${answer.newSalary}', '${answer.newDepartmentId}')`, (err, data) => {
+        if (err) throw err
+        init()
+      })
+    })
+    .catch(err => console.log(err))
+}
+
