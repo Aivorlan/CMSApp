@@ -53,4 +53,24 @@ let db = require('./db')
     .catch(err => console.log(err))
   }
 
+ // Function for adding departments, roles and employees
+
+  // Add department
+  function addDepartment() {
+    prompt([
+      {
+        type: 'input',
+        name: 'newDepartment',
+        message: 'What department do you want to add?'
+      }
+    ])
+      .then((answer) => {
+        db.query(`INSERT INTO department (name) VALUES ('${answer.newDepartment}')`, (err, data) => {
+          if (err) throw err
+          init()
+        })
+      })
+      .catch(err => console.log(err))
+  }
+
   
