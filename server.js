@@ -101,3 +101,36 @@ let db = require('./db')
     .catch(err => console.log(err))
 }
 
+// Add employee
+function addEmployee() {
+  prompt([
+    {
+      type: 'input',
+      name: 'firstName',
+      message: 'What is the first name of the employee?'
+    },
+    {
+      type: 'input',
+      name: 'lastName',
+      message: 'What is the last name of the employee?'
+    },
+    {
+      type: 'input',
+      name: 'roleId',
+      message: 'What is the role id of the employee?'
+    },
+    {
+      type: 'input',
+      name: 'managerId',
+      message: 'What is the manager id of the employee?'
+    }
+  ])
+    .then((answer) => {
+      db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('${answer.firstName}', '${answer.lastName}', '${answer.roleId}', '${answer.managerId}')`, (err, data) => {
+        if (err) throw err
+        init()
+      })
+    })
+    .catch(err => console.log(err))
+}
+
