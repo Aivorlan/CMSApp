@@ -1,0 +1,28 @@
+{
+  "name": "CMSApp",
+  "version": "1.0.0",
+  "description": "A command-line application that allows the user to add/view/update departments, roles and employess.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aivorlan/CMSApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aivorlan/CMSApp/issues"
+  },
+  "homepage": "https://github.com/Aivorlan/CMSApp#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "express": "^4.17.1",
+    "inquirer": "^7.3.3",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0"
+  }
+}
