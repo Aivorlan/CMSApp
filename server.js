@@ -134,3 +134,39 @@ function addEmployee() {
     .catch(err => console.log(err))
 }
 
+// Update employee roles
+function roleUpdate() {
+  db.query('SELECT * FROM employee', (err, data) => {
+    if (err) throw err
+    const employeeChoice = data.map((employee) => {
+      return { name: employee.first_name, value: employee.id }
+    })
+    db.query('SELECT * FROM roles', (err, data) => {
+      if (err) throw err
+      const roleChoice = data.map((role) => {
+        return { name: role.title, value: role.id }
+      })
+      prompt([
+        {
+          type: 'list',
+          name: 'employee',
+          message: 'Which employee do you want to update?',
+          choices: employeeChoice
+        },
+        {
+          type: 'list',
+          name: 'role',
+          message: 'Which role do you want to assign?',
+          choices: roleChoice
+        }
+      ])
+        .then((answer) => {
+          db.query('UPDATE employee SET ? WHERE ?', [answer.employee, answer.role], (err, info) => {
+            if (err) throw err
+            init()
+          })
+        })
+    })
+  })
+}
+ 
